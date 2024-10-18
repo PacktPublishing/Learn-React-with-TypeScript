@@ -1,4 +1,0 @@
-const title = "Oh no!";
-<div className="title">
-  <span>{title ? title : "Something important"}</span>
-</div>
