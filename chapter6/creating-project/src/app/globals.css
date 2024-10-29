@@ -126,3 +126,8 @@ input {
   font-weight: inherit;
   color: inherit;
 }
+@media (prefers-color-scheme: dark) {
+  input {
+    color: #0a0a0a;
+  }
+}
