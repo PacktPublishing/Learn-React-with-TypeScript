@@ -1,0 +1,169 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --focus: #b3b3b3;
+  --font-size: 1rem;
+  --border: 1px solid #767676;
+  --btn-background: #171717;
+  --btn-foreground: #ffffff;
+  --error-color: #c51a1a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --focus: #fcfcfc;
+    --border: 1px solid #dddddd;
+    --btn-background: #ffffff;
+    --btn-foreground: #171717;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+main h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0 0 1.5rem;
+}
+main p {
+  margin-bottom: 1rem;
+}
+main form {
+  width: 400px;
+}
+main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+main ul li {
+  margin-bottom: 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+.field label {
+  font-size: var(--font-size);
+  font-weight: 600;
+}
+.field input,
+.field select,
+.field textarea {
+  border-radius: 4px;
+  border: var(--border);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: var(--font-size);
+  line-height: 1.25rem;
+  font-family: inherit;
+  color: inherit;
+}
+.field input,
+.field select {
+  height: 2.5rem;
+}
+.field textarea {
+  height: 5rem;
+}
+.field select {
+  appearance: none;
+}
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.field input[aria-invalid='true'],
+.field select[aria-invalid='true'],
+.field textarea[aria-invalid='true'] {
+  border-color: var(--error-color);
+}
+.field input[aria-invalid='true']:focus-visible,
+.field select[aria-invalid='true']:focus-visible,
+.field
+  textarea[aria-invalid='true']:focus-visible {
+  outline-color: var(--error-color);
+}
+.field
+  input[aria-invalid='true']
+  + div[role='alert'],
+.field
+  select[aria-invalid='true']
+  + div[role='alert'],
+.field
+  textarea[aria-invalid='true']
+  + div[role='alert'] {
+  color: var(--error-color);
+}
+
+main form button[type='submit'] {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--btn-foreground);
+  background: var(--btn-background);
+  font-family: inherit;
+  font-size: var(--font-size);
+  line-height: 1.25rem;
+  border-radius: 4px;
+  border: var(--border);
+  cursor: pointer;
+}
+main form button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+main form button[type='submit']:disabled {
+  opacity: 0.5;
+}
+main form .error {
+  color: var(--error-color);
+}
