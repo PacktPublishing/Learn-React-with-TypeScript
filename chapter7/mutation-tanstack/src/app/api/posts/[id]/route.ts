@@ -2,9 +2,9 @@ import { getPost } from '@/data/queries';
 
 export async function GET(
   _: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const id = Number(params.id);
+  const id = Number((await params).id);
   if (!Number.isInteger(id)) {
     return Response.json(
       { message: 'Post not found' },
